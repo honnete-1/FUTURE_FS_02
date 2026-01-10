@@ -1,5 +1,7 @@
 "use client";
 
+import * as React from "react";
+
 import { useAuth } from "@/store/useAuth";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,11 +20,31 @@ import { User, LogOut, LayoutDashboard } from "lucide-react";
 export function UserNav() {
     const { user, logout } = useAuth();
     const router = useRouter();
+    const [mounted, setMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const handleLogout = () => {
         logout();
         router.push("/");
     };
+
+    if (!mounted) {
+        // Return a stable placeholder matching server render (guest state) or null
+        // Since server sees no user, it renders guest state.
+        // But if we want to avoid flash, we should probably match the guest state structure
+        // OR simply return the guest state by default and let useEffect update it.
+        // However, if we're using persist, user might be present.
+        // Safest for hydration is to render nothing or guest state until mounted.
+        return (
+            <div className="flex items-center gap-2">
+                <Button variant="ghost" disabled>Log in</Button>
+                <Button disabled>Sign up</Button>
+            </div>
+        );
+    }
 
     if (!user) {
         return (

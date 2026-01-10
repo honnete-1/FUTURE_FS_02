@@ -16,7 +16,6 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge"; // We might need to create this if it doesn't exist, or just use span
 import { MoreHorizontal } from "lucide-react";
 import { toast } from "sonner";
 

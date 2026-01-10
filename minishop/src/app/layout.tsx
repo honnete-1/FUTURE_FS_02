@@ -20,12 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cn(inter.variable, "min-h-screen flex flex-col")}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(inter.variable, "min-h-screen flex flex-col")} suppressHydrationWarning>
         <Suspense fallback={<div className="h-16 bg-white border-b" />}>
           <Navbar />
         </Suspense>
-        <main className="flex-1 container mx-auto px-4 py-8">
+        <main className="flex-1 container mx-auto px-4 py-8" id="products">
           {children}
         </main>
         <Footer />

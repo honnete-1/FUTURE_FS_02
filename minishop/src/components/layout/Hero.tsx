@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -25,11 +26,15 @@ export function Hero() {
                         Discover a curated collection of premium tech, fashion, and home essentials designed for modern living.
                     </p>
                     <div className="flex flex-wrap gap-4">
-                        <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 gap-2">
-                            Shop Now <ArrowRight className="h-4 w-4" />
+                        <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 gap-2" asChild>
+                            <Link href="/#products">
+                                Shop Now <ArrowRight className="h-4 w-4" />
+                            </Link>
                         </Button>
-                        <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-                            View Deals
+                        <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white hover:text-black" asChild>
+                            <Link href="/?category=electronics#products">
+                                View Deals
+                            </Link>
                         </Button>
                     </div>
                 </div>

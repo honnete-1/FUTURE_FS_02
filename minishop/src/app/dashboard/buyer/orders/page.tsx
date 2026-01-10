@@ -3,7 +3,6 @@
 import { useAuth } from "@/store/useAuth";
 import { useAdminStore } from "@/store/useAdminStore";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 
 function StatusBadge({ status }: { status: string }) {
     const colors: Record<string, string> = {
