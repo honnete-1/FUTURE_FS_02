@@ -4,7 +4,7 @@ import { AddProductForm } from "./add-product-form"
 import { ProductCard } from "@/components/product/ProductCard"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { deleteProduct } from "@/actions/product"
-import { Button } from "@/components/ui/button" // Need client component for delete? Or form action.
+import { DeleteProduct } from "./delete-product"
 
 export default async function SellerDashboard() {
     const session = await auth()
@@ -36,9 +36,7 @@ export default async function SellerDashboard() {
                                     ...product,
                                     rating: { rate: product.ratingRate, count: product.ratingCount }
                                 }} />
-                                <form action={deleteProduct.bind(null, product.id)} className="absolute top-2 right-2 z-20">
-                                    <Button variant="destructive" size="sm" type="submit">Delete</Button>
-                                </form>
+                                <DeleteProduct id={product.id} />
                             </div>
                         ))}
                         {products.length === 0 && (
