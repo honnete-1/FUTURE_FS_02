@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { ProductCard } from "@/components/product/ProductCard";
 import { products } from "@/lib/data";
-import { Hero } from "@/components/layout/Hero";
+import { HomeCarousel } from "@/components/home/HomeCarousel";
 import { ProductToolbar } from "@/components/product/ProductToolbar";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -54,7 +54,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ [
       {/* Full Width Hero */}
       {!query && !category && (
         <div className="-mx-4">
-          <Hero />
+          <HomeCarousel />
         </div>
       )}
 
