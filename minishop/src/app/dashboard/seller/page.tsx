@@ -2,9 +2,9 @@ import { auth } from "@/auth"
 import db from "@/lib/db"
 import { AddProductForm } from "./add-product-form"
 import { ProductCard } from "@/components/product/ProductCard"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { deleteProduct } from "@/actions/product"
 import { DeleteProduct } from "./delete-product"
+import { Product } from "@prisma/client"
 
 export default async function SellerDashboard() {
     const session = await auth()
@@ -30,7 +30,7 @@ export default async function SellerDashboard() {
                 <div className="md:col-span-2 space-y-4">
                     <h2 className="text-2xl font-semibold">My Products</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {products.map((product) => (
+                        {products.map((product: Product) => (
                             <div key={product.id} className="relative group">
                                 <ProductCard product={{
                                     ...product,
