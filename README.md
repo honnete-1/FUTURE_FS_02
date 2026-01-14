@@ -20,7 +20,7 @@ through a clean and responsive interface.
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 ### Frontend
 - React
